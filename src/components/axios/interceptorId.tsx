@@ -29,16 +29,14 @@ const InterceptorId = () => {
     
         <div>
 			<h2 className="text-center">Interceptor using custom hooks Ids</h2>
-			{data.length > 0 ? (
+			{
 				data.map((post: any) => (
 					<div key={post.id} className="flex gap-10 justify-center">
 						<h1>{post.id}</h1>
 						<p>{post.price}</p>
 					</div>
 				))
-			) : (
-				<>{error && <p className="text-red-500">{error}</p>}</>
-			)}
+			}
 		</div>
     
   )
