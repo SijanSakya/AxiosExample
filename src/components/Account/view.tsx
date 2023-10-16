@@ -4,7 +4,11 @@ import SignIn from "./SignIn";
 import Register from "./Register";
 
 import Home1 from "./home";
+import ViewList from "./viewList";
 
+export interface compProps {
+  title : string;
+}
 function MyComponent() {
   const [view, setView] = useState("signIn");
 
@@ -47,13 +51,15 @@ function MyComponent() {
 
   return (
     <div>
-      <div className="flex gap-5">
-        {componentList.map((comp) => (
+      <div className="">
+        {/* {componentList.map((comp) => (
           <div key={comp.title}>
             <button onClick={() => setView(comp.title)}>{comp.title}</button>
           </div>
-        ))}
+        ))} */}
+       <ViewList title="title" setView={setView} componentList={componentList}  />
       </div>
+      
 
       <h1 className="text-center">{Display()}</h1>
     </div>
