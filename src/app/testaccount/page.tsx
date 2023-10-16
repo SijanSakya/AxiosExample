@@ -5,9 +5,9 @@ import React, { Dispatch, SetStateAction, useState } from "react";
 
 const switchPAge = ({currentPage,setCurrentPage }:{currentPage:string,setCurrentPage:Dispatch<SetStateAction<string>> }) => {
     if (currentPage === "loginPage") {
-      setCurrentPage("register");
-    } else if(currentPage === "register"){
       setCurrentPage("loginPage");
+    } else if(currentPage === "register"){
+      setCurrentPage("register");
     }
   };
 const TestAccount = () => {
