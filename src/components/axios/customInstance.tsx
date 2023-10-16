@@ -56,16 +56,12 @@ const CustomInstance: React.FC<CustomProp> = () => {
 	const { data, isLoading, error } = useAxios({
 		route: "react-store-products",
 	});
-
 	// TODO: Handle error, loading state accordingly,
 	return (
 		<div>
 			<h2 className="text-center">custom instance</h2>
-			{/* {data.map((post)=>{
-        return (<div>
-            <h1>{post.id}</h1>
-        </div>)
-       })} */}
+       {isLoading && <div>Loading...</div>}
+      {/* {error && <div>{error.message}</div>} */}
 			{data.length > 0 &&
 				data.map((post: any) => (
 					<div key={post.id} className="flex gap-10 justify-center">

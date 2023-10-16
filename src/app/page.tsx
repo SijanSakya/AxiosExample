@@ -7,6 +7,8 @@ import GlobalInstance from "@/components/axios/globalInstance";
 import Image from "next/image";
 import CustomInstance from "@/components/axios/customInstance";
 import CustomInstanceIds from "@/components/axios/customInstanceIds";
+import Interceptors from "@/components/axios/Interceptor";
+import InterceptorId from "@/components/axios/interceptorId";
 
 export default function Home() {
 	return (
@@ -17,10 +19,12 @@ export default function Home() {
 			{/* <GlobalInstance /> */}
 			{/* <CustomInstance /> */}
 			<div className="w-full items-center mt-5 justify-center">
-				<p className="text-center">
+				{/* <p className="text-center">
 					######### Here is an example of reusable hook for api call #######
 				</p>
-				<CustomInstanceIds />
+				<CustomInstanceIds id={undefined} name={""} price={0} />
+				<Interceptors /> */}
+				<InterceptorId />
 			</div>
 		</div>
 	);

@@ -1,17 +1,18 @@
-"use cLient";
-import { useAxios } from "@/hooks/useAxios";
+import React from 'react'
+// import { useAxiosInter } from "@/hooks/useAxiosIntercepter";
+import { useAxiosMulti } from "@/hooks/useAxiosMulti";
 
 export interface CustomProp {
 	id: any;
 	name: string;
 	price: number;
 }
-const CustomInstanceIds: React.FC<CustomProp> = () => {
-	const { data, isLoading, error } = useAxios({
-		route: "/react-prop-types-example",
+const InterceptorId = () => {
+    const { data, loading, error } = useAxiosMulti({
+		route: "/react-store-products",
 	});
 
-	if (isLoading) {
+    if (loading) {
 		return (
 			<div className="w-full flex items-center justify-center">
 				Loading........
@@ -24,9 +25,10 @@ const CustomInstanceIds: React.FC<CustomProp> = () => {
 			</div>
 		)
 	}
-	return (
-		<div>
-			<h2 className="text-center">custom instance Ids</h2>
+  return (
+    
+        <div>
+			<h2 className="text-center">Interceptor using custom hooks Ids</h2>
 			{data.length > 0 ? (
 				data.map((post: any) => (
 					<div key={post.id} className="flex gap-10 justify-center">
@@ -38,6 +40,8 @@ const CustomInstanceIds: React.FC<CustomProp> = () => {
 				<>{error && <p className="text-red-500">{error}</p>}</>
 			)}
 		</div>
-	);
-};
-export default CustomInstanceIds;
+    
+  )
+}
+
+export default InterceptorId
