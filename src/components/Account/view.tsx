@@ -8,6 +8,26 @@ import Home1 from "./home";
 function MyComponent() {
   const [view, setView] = useState("signIn");
 
+  const componentList = [
+    {
+      components: Home1,
+      title: "home",
+    },
+    { components: SignIn, title: "signIn" },
+    {
+      components: Register,
+      title: "register",
+    },
+    {
+      components: ContactPage,
+      title: "contact",
+    },
+    {
+      components: AboutPage,
+      title: "about",
+    },
+  ];
+
   const Display = () => {
     switch (view) {
       case "register":
@@ -28,14 +48,14 @@ function MyComponent() {
   return (
     <div>
       <div className="flex gap-5">
-        <button onClick={() => setView("register")}>Register</button>
-        <button onClick={() => setView("signIn")}>Sign In</button>
-        <button onClick={() => setView("home")}>Home</button>
-        <button onClick={() => setView("about")}>About</button>
-        <button onClick={() => setView("contact")}>Contact</button>
+        {componentList.map((comp) => (
+          <div key={comp.title}>
+            <button onClick={() => setView(comp.title)}>{comp.title}</button>
+          </div>
+        ))}
       </div>
 
-     <h1 className="text-center">{Display()}</h1>
+      <h1 className="text-center">{Display()}</h1>
     </div>
   );
 }
